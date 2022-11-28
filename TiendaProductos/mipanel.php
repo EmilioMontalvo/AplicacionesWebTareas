@@ -22,6 +22,11 @@
         setcookie("c_clave",$clave,0);
         setcookie("c_preferencias",$guardarPreferencias,0);
         
+    }else{
+        setcookie("c_nombre","");
+        setcookie("c_clave","");
+        setcookie("c_preferencias","");
+
     }
 
    
