@@ -1,12 +1,22 @@
 <?php 
 
-    session_start(); //Cada que se va  autilizar la sesion se usa
+    session_start(); 
+
+
 
     if(!isset($_SESSION["s_nombre"]) && !isset($_SESSION["s_clave"])){
+           
             header("Location: index.php");
+            die();
     }
 
-    setcookie("c_idioma",$_GET["idioma"],0);
+    $idioma=$_GET["idioma"];
+
+    if($idioma!="ES" && $idioma!="EN"){ 
+        $idioma="ES";
+    }
+
+    setcookie("c_idioma",$idioma, time() + 24 * 3600);
     header("Location: mipanel.php");
 
 ?>

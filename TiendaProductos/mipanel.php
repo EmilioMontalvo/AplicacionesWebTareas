@@ -1,31 +1,40 @@
 <?php
 
     session_start(); 
-
-
+   
+   
     if(isset($_POST["nombre"]) && isset($_POST["clave"])){
         $_SESSION["s_nombre"]=$_POST["nombre"];
         $_SESSION["s_clave"]=$_POST["clave"];
+        $_SESSION["s_preferencias"]=(isset($_POST["chkpreferencias"]))?$_POST["chkpreferencias"]:"";
     }
-    if(!isset($_SESSION["s_nombre"]) && !isset($_SESSION["s_clave"])){
+    if(!isset($_SESSION["s_nombre"]) && !isset($_SESSION["s_clave"]) && !isset($_SESSION["s_preferencias"])){
         header("Location: index.php");
+        die();
     }
+    
 
     $nombre=$_SESSION["s_nombre"];
+   
     $clave=$_SESSION["s_clave"];
-    $guardarPreferencias=(isset($_POST["chkpreferencias"]))?$_POST["chkpreferencias"]:"";
+    
+    $guardarPreferencias=$_SESSION["s_preferencias"];
+    
+    
     $idioma=isset($_COOKIE["c_idioma"])?$_COOKIE["c_idioma"]:"ES";
 
-    if($guardarPreferencias!=""){
+    if($guardarPreferencias!="" ){
         
         setcookie("c_nombre",$nombre,0);
         setcookie("c_clave",$clave,0);
         setcookie("c_preferencias",$guardarPreferencias,0);
         
     }else{
+        
         setcookie("c_nombre","");
         setcookie("c_clave","");
         setcookie("c_preferencias","");
+        
 
     }
 

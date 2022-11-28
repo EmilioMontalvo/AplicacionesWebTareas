@@ -10,6 +10,7 @@
     
     if(isset($_COOKIE["c_preferencias"]) && $_COOKIE["c_preferencias"]!="" ){
         $preferencias=true;
+        
         $nombre=isset($_COOKIE["c_nombre"])?$_COOKIE["c_nombre"]:"";
         $clave=isset($_COOKIE["c_clave"])?$_COOKIE["c_clave"]:"";        
     }
