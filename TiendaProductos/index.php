@@ -26,7 +26,7 @@
         <form method="POST" action="mipanel.php">
             <fieldset>
                 <h1>LOGIN</h1>
-                Usuario:<br> <input type="text" name="nombre" value="<?php echo $nombre;?>"required/><br><br/>
+                Usuario:<br> <input type="text" name="nombre" value="<?php echo $nombre;?>"pattern="^\S.*$" required /><br><br/>
                 Clave:<br> <input type="password" name="clave" value="<?php echo $clave;?>"required/><br>
                 <input type="checkbox" name="chkpreferencias" <?php echo ($preferencias)?"checked":"";?>>
                 <label class="check" for="checkbox">Recordarme</label><br> 
